@@ -1,0 +1,16 @@
+html,
+body,
+#root,
+#main {
+  height: 100%;
+  margin: 0;
+}
+
+div {
+  border: 1px solid black !important;
+}
+
+#main {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+}
