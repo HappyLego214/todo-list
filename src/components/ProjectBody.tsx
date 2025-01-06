@@ -7,9 +7,10 @@ const ProjectBody: React.FC<ProjectBodyProps> = ({
   projects,
 }) => {
   return (
-    <div>
+    <div className="body">
       {projects.map((project) => (
         <ProjectCard
+          key={project.id}
           project={project}
           setView={setView}
           setProject={setProject}

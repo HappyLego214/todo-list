@@ -2,9 +2,9 @@ import { ToDoBodyProps } from "./Interfaces";
 
 const ToDoBody: React.FC<ToDoBodyProps> = ({ project }) => {
   return (
-    <div>
+    <div className="body">
       {project.todos.map((card, index) => (
-        <div>
+        <div key={index}>
           {card.name}-{index}
         </div>
       ))}

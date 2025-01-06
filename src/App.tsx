@@ -1,37 +1,38 @@
 import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import "./App.css";
 import ProjectBody from "./components/ProjectBody";
-import ToDoBody from "./components/ToDoBody";
+import ToDoBody from "./components/TaskBody";
 import ProjectSidebar from "./components/ProjectSidebar";
-import ToDoSideBar from "./components/ToDoSideBar";
-import { Project } from "./components/Interfaces";
+import ToDoSideBar from "./components/TaskSideBar";
+import { Project, ToDo } from "./components/Interfaces";
 
 const initialProjects: Project[] = [
   {
-    id: 1,
+    id: "1",
     name: "School",
     todos: [
-      { id: 1, name: "1" },
-      { id: 2, name: "1" },
-      { id: 3, name: "1" },
+      { id: "1", name: "1" },
+      { id: "2", name: "1" },
+      { id: "3", name: "1" },
     ],
   },
   {
-    id: 2,
+    id: "2",
     name: "House",
     todos: [
-      { id: 1, name: "2" },
-      { id: 2, name: "2" },
-      { id: 3, name: "2" },
+      { id: "1", name: "2" },
+      { id: "2", name: "2" },
+      { id: "3", name: "2" },
     ],
   },
   {
-    id: 3,
+    id: "3",
     name: "Personal",
     todos: [
-      { id: 1, name: "3" },
-      { id: 2, name: "3" },
-      { id: 3, name: "3" },
+      { id: "1", name: "3" },
+      { id: "2", name: "3" },
+      { id: "3", name: "3" },
     ],
   },
 ];
@@ -39,16 +40,42 @@ const initialProjects: Project[] = [
 function App() {
   const [view, setView] = useState("project");
   const [project, setProject] = useState(initialProjects[0]);
+  const [projects, updateProjects] = useState(initialProjects);
+
+  function addProject(name: string, todos: ToDo[]) {
+    let newProject = {
+      id: uuidv4(),
+      name: name,
+      todos: todos,
+    };
+
+    console.log(newProject);
+
+    updateProjects((prevProjects) => [...prevProjects, newProject]);
+  }
+
+  function addToDo(name: string) {
+    let newToDo = {
+      id: uuidv4(),
+      name: name,
+    };
+
+    const todos = project.todos;
+    todos.push(newToDo);
+
+    updateProjects((prevProjects) => [...prevProjects, project]);
+  }
+
   return (
     <div id="main">
       {view === "project" ? (
-        <ProjectSidebar></ProjectSidebar>
+        <ProjectSidebar addProject={addProject}></ProjectSidebar>
       ) : (
-        <ToDoSideBar setView={setView}></ToDoSideBar>
+        <ToDoSideBar setView={setView} addToDo={addToDo}></ToDoSideBar>
       )}
       {view === "project" ? (
         <ProjectBody
-          projects={initialProjects}
+          projects={projects}
           setView={setView}
           setProject={setProject}
         ></ProjectBody>

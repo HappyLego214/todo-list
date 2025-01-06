@@ -1,10 +1,10 @@
 export interface ToDo {
-  id: number;
+  id: string;
   name: string;
 }
 
 export interface Project {
-  id: number;
+  id: string;
   name: string;
   todos: ToDo[];
 }
@@ -25,6 +25,11 @@ export interface ProjectBodyProps {
   setProject: (project: Project) => void;
 }
 
-export interface viewProp {
+export interface ToDoSidebarProps {
   setView: (view: string) => void;
+  addToDo: (name: string) => void;
+}
+
+export interface ProjectSidebarProps {
+  addProject: (name: string, todo: ToDo[]) => void;
 }
