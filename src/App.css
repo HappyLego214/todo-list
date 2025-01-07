@@ -18,12 +18,19 @@ div {
   grid-template-columns: 400px 1fr;
 }
 
-.body {
+.project-body {
   margin: 25px;
   display: grid;
   grid-template-columns: repeat(4, minmax(250px, 1fr));
   grid-auto-rows: 250px;
   gap: 25px;
+}
+
+.todo-body {
+  margin: 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 50px;
 }
 
 .project-card {

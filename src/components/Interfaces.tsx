@@ -1,6 +1,7 @@
 export interface ToDo {
   id: string;
   name: string;
+  status: number;
 }
 
 export interface Project {
@@ -28,6 +29,11 @@ export interface ProjectBodyProps {
 export interface ToDoSidebarProps {
   setView: (view: string) => void;
   addToDo: (name: string) => void;
+}
+
+export interface TaskCategoryProps {
+  category: string;
+  todos: ToDo[];
 }
 
 export interface ProjectSidebarProps {

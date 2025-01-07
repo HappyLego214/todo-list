@@ -7,7 +7,7 @@ const ProjectBody: React.FC<ProjectBodyProps> = ({
   projects,
 }) => {
   return (
-    <div className="body">
+    <div className="project-body">
       {projects.map((project) => (
         <ProjectCard
           key={project.id}

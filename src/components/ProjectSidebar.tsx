@@ -5,10 +5,10 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ addProject }) => {
     <div>
       <button
         onClick={() => {
-          addProject(4, "Test-Project", [
-            { id: 1, name: "3" },
-            { id: 2, name: "3" },
-            { id: 3, name: "3" },
+          addProject("Test-Project", [
+            { id: "1", name: "4", status: 0 },
+            { id: "2", name: "4", status: 1 },
+            { id: "3", name: "4", status: 3 },
           ]);
         }}
       >

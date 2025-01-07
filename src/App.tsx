@@ -12,27 +12,27 @@ const initialProjects: Project[] = [
     id: "1",
     name: "School",
     todos: [
-      { id: "1", name: "1" },
-      { id: "2", name: "1" },
-      { id: "3", name: "1" },
+      { id: "1", name: "1", status: 0 },
+      { id: "2", name: "1", status: 1 },
+      { id: "3", name: "1", status: 2 },
     ],
   },
   {
     id: "2",
     name: "House",
     todos: [
-      { id: "1", name: "2" },
-      { id: "2", name: "2" },
-      { id: "3", name: "2" },
+      { id: "1", name: "2", status: 0 },
+      { id: "2", name: "2", status: 1 },
+      { id: "3", name: "2", status: 2 },
     ],
   },
   {
     id: "3",
     name: "Personal",
     todos: [
-      { id: "1", name: "3" },
-      { id: "2", name: "3" },
-      { id: "3", name: "3" },
+      { id: "1", name: "3", status: 0 },
+      { id: "2", name: "3", status: 1 },
+      { id: "3", name: "3", status: 2 },
     ],
   },
 ];
@@ -49,8 +49,6 @@ function App() {
       todos: todos,
     };
 
-    console.log(newProject);
-
     updateProjects((prevProjects) => [...prevProjects, newProject]);
   }
 
@@ -58,6 +56,7 @@ function App() {
     let newToDo = {
       id: uuidv4(),
       name: name,
+      status: 0,
     };
 
     const todos = project.todos;
