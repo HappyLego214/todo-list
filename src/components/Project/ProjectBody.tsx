@@ -1,4 +1,4 @@
-import { ProjectBodyProps } from "./Interfaces";
+import { ProjectBodyProps } from "../Interfaces";
 import ProjectCard from "./ProjectCard";
 
 const ProjectBody: React.FC<ProjectBodyProps> = ({

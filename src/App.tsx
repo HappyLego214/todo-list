@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
-import ProjectBody from "./components/ProjectBody";
-import ToDoBody from "./components/TaskBody";
-import ProjectSidebar from "./components/ProjectSidebar";
-import ToDoSideBar from "./components/TaskSideBar";
+import ProjectBody from "./components/Project/ProjectBody";
+import ToDoBody from "./components/Task/TaskBody";
+import ProjectSidebar from "./components/Project/ProjectSidebar";
+import ToDoSideBar from "./components/Task/TaskSideBar";
 import { Project, ToDo } from "./components/Interfaces";
 
 const initialProjects: Project[] = [
@@ -12,27 +12,27 @@ const initialProjects: Project[] = [
     id: "1",
     name: "School",
     todos: [
-      { id: "1", name: "Finish School Project", status: 0 },
-      { id: "2", name: "Assignments", status: 1 },
-      { id: "3", name: "Group Work", status: 2 },
+      { id: "1", name: "Finish School Project", status: 0, category: "ToDo" },
+      { id: "2", name: "Assignments", status: 1, category: "Doing" },
+      { id: "3", name: "Group Work", status: 0, category: "Done" },
     ],
   },
   {
     id: "2",
     name: "House",
     todos: [
-      { id: "1", name: "Cleaning Kitchen", status: 0 },
-      { id: "2", name: "Helping Mom", status: 1 },
-      { id: "3", name: "Cooking Dinner", status: 2 },
+      { id: "1", name: "Cleaning Kitchen", status: 0, category: "ToDo" },
+      { id: "2", name: "Helping Mom", status: 0, category: "Doing" },
+      { id: "3", name: "Cooking Dinner", status: 0, category: "Done" },
     ],
   },
   {
     id: "3",
     name: "Personal",
     todos: [
-      { id: "1", name: "Personal Project", status: 0 },
-      { id: "2", name: "Gaming Session", status: 1 },
-      { id: "3", name: "Workout", status: 2 },
+      { id: "1", name: "Personal Project", status: 0, category: "ToDo" },
+      { id: "2", name: "Gaming Session", status: 0, category: "Doing" },
+      { id: "3", name: "Workout", status: 0, category: "Done" },
     ],
   },
 ];
@@ -55,11 +55,12 @@ function App() {
     updateProjects((prevProjects) => [...prevProjects, newProject]);
   }
 
-  function addToDo(name: string, status: number) {
+  function addToDo(name: string, category: string) {
     let newToDo = {
       id: uuidv4(),
       name: name,
-      status: status,
+      status: 0,
+      category: category,
     };
 
     const updatedTodos = [...project.todos, newToDo];
@@ -81,6 +82,13 @@ function App() {
     );
 
     setProject(updatedProject);
+  }
+
+  function updateToDo(todo: ToDo) {
+    const updatedTodos = project.todos.filter(
+      (curr_todo) => curr_todo.id !== todo.id
+    );
+    const updatedProject = { ...project, todos: updatedTodos };
   }
 
   return (

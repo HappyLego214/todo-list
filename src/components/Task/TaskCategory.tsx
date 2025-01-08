@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { TaskCategoryProps } from "./Interfaces";
-import { FaArchive } from "react-icons/fa";
+import { TaskCategoryProps } from "../Interfaces";
+import TaskCard from "./TaskCard";
 
 const TaskCategory: React.FC<TaskCategoryProps> = ({
   category,
@@ -16,27 +16,20 @@ const TaskCategory: React.FC<TaskCategoryProps> = ({
 
   const handleFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addToDo(inputValue, category.status);
+    addToDo(inputValue, category);
     setInputValue("");
   };
 
   return (
     <div className="task-category">
-      <div className="category-name">{category.name}</div>
+      <div className="category-name">{category}</div>
       <div className="category-cards">
         {todos.map((todo, index) => (
-          <div className="todo-card" key={index}>
-            <div className="todo-top">
-              <div>{todo.name}</div>
-              <div>
-                <FaArchive
-                  onClick={() => {
-                    removeToDo(todo.id);
-                  }}
-                ></FaArchive>
-              </div>
-            </div>
-          </div>
+          <TaskCard
+            todo={todo}
+            index={index}
+            removeToDo={removeToDo}
+          ></TaskCard>
         ))}
       </div>
       <div className="category-add">

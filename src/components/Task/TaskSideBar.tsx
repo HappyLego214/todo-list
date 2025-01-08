@@ -1,4 +1,4 @@
-import { ToDoSidebarProps } from "./Interfaces";
+import { ToDoSidebarProps } from "../Interfaces";
 
 const ToDoSideBar = ({ setView }: ToDoSidebarProps) => {
   return (

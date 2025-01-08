@@ -59,9 +59,10 @@ div {
 }
 
 .todo-card {
-  height: 100px;
+  height: 125px;
   border-radius: 15px;
   margin: 15px;
+  padding: 10px;
 }
 
 .category-add {
@@ -74,6 +75,20 @@ div {
   padding: 5px;
   width: 300px;
   border-radius: 8px;
+}
+
+.todo-container {
+  display: grid;
+  border-radius: 15px;
+  grid-template-columns: 50px 1fr;
+}
+
+.todo-checkmark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  height: 100px;
 }
 
 .todo-top {

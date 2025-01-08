@@ -2,6 +2,7 @@ export interface ToDo {
   id: string;
   name: string;
   status: number;
+  category: string;
 }
 
 export interface Project {
@@ -12,7 +13,7 @@ export interface Project {
 
 export interface ToDoBodyProps {
   project: Project;
-  addToDo: (name: string, status: number) => void;
+  addToDo: (name: string, category: string) => void;
   removeToDo: (id: string) => void;
 }
 
@@ -33,12 +34,18 @@ export interface ToDoSidebarProps {
 }
 
 export interface TaskCategoryProps {
-  category: { name: string; status: number };
+  category: string;
   todos: ToDo[];
-  addToDo: (name: string, status: number) => void;
+  addToDo: (name: string, category: string) => void;
   removeToDo: (id: string) => void;
 }
 
 export interface ProjectSidebarProps {
   addProject: (name: string, todo: ToDo[]) => void;
+}
+
+export interface TaskCardProps {
+  index: number;
+  todo: ToDo;
+  removeToDo: (id: string) => void;
 }

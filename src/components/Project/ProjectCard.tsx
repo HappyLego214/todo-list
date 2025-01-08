@@ -1,4 +1,4 @@
-import { CardProp } from "./Interfaces";
+import { CardProp } from "../Interfaces";
 
 const ProjectCard: React.FC<CardProp> = ({ setView, setProject, project }) => {
   return (

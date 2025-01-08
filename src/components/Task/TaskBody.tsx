@@ -1,4 +1,4 @@
-import { ToDoBodyProps } from "./Interfaces";
+import { ToDoBodyProps } from "../Interfaces";
 import TaskCategory from "./TaskCategory";
 
 const ToDoBody: React.FC<ToDoBodyProps> = ({
@@ -6,16 +6,12 @@ const ToDoBody: React.FC<ToDoBodyProps> = ({
   addToDo,
   removeToDo,
 }) => {
-  const categories = [
-    { name: "ToDo", status: 0 },
-    { name: "Doing", status: 1 },
-    { name: "Done", status: 2 },
-  ];
+  const categories = ["ToDo", "Doing", "Done"];
   return (
     <div className="todo-body">
       {categories.map((category, index) => {
         const filteredTodos = project.todos.filter(
-          (todo) => todo.status === category.status
+          (todo) => todo.category === category
         );
         return (
           <TaskCategory

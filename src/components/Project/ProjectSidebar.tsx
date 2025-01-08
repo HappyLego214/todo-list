@@ -1,4 +1,4 @@
-import { ProjectSidebarProps } from "./Interfaces";
+import { ProjectSidebarProps } from "../Interfaces";
 
 const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ addProject }) => {
   return (
@@ -6,9 +6,9 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ addProject }) => {
       <button
         onClick={() => {
           addProject("Test-Project", [
-            { id: "1", name: "4", status: 0 },
-            { id: "2", name: "4", status: 1 },
-            { id: "3", name: "4", status: 3 },
+            { id: "1", name: "4", status: 0, category: "ToDo" },
+            { id: "2", name: "4", status: 0, category: "Doing" },
+            { id: "3", name: "4", status: 0, category: "Done" },
           ]);
         }}
       >
