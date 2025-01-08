@@ -85,10 +85,23 @@ function App() {
   }
 
   function updateToDo(todo: ToDo) {
-    const updatedTodos = project.todos.filter(
-      (curr_todo) => curr_todo.id !== todo.id
+    const todoIndex = project.todos.findIndex(
+      (curr_todo) => curr_todo.id == todo.id
     );
+
+    const updatedTodos = [
+      ...project.todos.slice(0, todoIndex),
+      todo,
+      ...project.todos.slice(todoIndex + 1),
+    ];
+
     const updatedProject = { ...project, todos: updatedTodos };
+
+    updateProjects((prevProjects) =>
+      prevProjects.map((p) => (p.id == project.id ? updatedProject : p))
+    );
+
+    setProject(updatedProject);
   }
 
   return (

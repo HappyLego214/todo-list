@@ -6,6 +6,7 @@ import { useState } from "react";
 
 const TaskCard: React.FC<TaskCardProps> = ({ removeToDo, index, todo }) => {
   const [inputCheck, setCheck] = useState(0);
+  const [inputTodo, setToDo] = useState(todo);
 
   return (
     <div className="todo-card" key={index}>
