@@ -12,30 +12,33 @@ const initialProjects: Project[] = [
     id: "1",
     name: "School",
     todos: [
-      { id: "1", name: "1", status: 0 },
-      { id: "2", name: "1", status: 1 },
-      { id: "3", name: "1", status: 2 },
+      { id: "1", name: "Finish School Project", status: 0 },
+      { id: "2", name: "Assignments", status: 1 },
+      { id: "3", name: "Group Work", status: 2 },
     ],
   },
   {
     id: "2",
     name: "House",
     todos: [
-      { id: "1", name: "2", status: 0 },
-      { id: "2", name: "2", status: 1 },
-      { id: "3", name: "2", status: 2 },
+      { id: "1", name: "Cleaning Kitchen", status: 0 },
+      { id: "2", name: "Helping Mom", status: 1 },
+      { id: "3", name: "Cooking Dinner", status: 2 },
     ],
   },
   {
     id: "3",
     name: "Personal",
     todos: [
-      { id: "1", name: "3", status: 0 },
-      { id: "2", name: "3", status: 1 },
-      { id: "3", name: "3", status: 2 },
+      { id: "1", name: "Personal Project", status: 0 },
+      { id: "2", name: "Gaming Session", status: 1 },
+      { id: "3", name: "Workout", status: 2 },
     ],
   },
 ];
+
+const today = new Date();
+console.log(today);
 
 function App() {
   const [view, setView] = useState("project");
