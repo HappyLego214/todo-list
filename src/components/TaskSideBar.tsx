@@ -1,6 +1,6 @@
 import { ToDoSidebarProps } from "./Interfaces";
 
-const ToDoSideBar = ({ setView, addToDo }: ToDoSidebarProps) => {
+const ToDoSideBar = ({ setView }: ToDoSidebarProps) => {
   return (
     <div>
       <button
@@ -9,13 +9,6 @@ const ToDoSideBar = ({ setView, addToDo }: ToDoSidebarProps) => {
         }}
       >
         Back
-      </button>
-      <button
-        onClick={() => {
-          addToDo("test-to-do");
-        }}
-      >
-        Add ToDo
       </button>
       ToDoSideBar
     </div>

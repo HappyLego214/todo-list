@@ -12,6 +12,8 @@ export interface Project {
 
 export interface ToDoBodyProps {
   project: Project;
+  addToDo: (name: string, status: number) => void;
+  removeToDo: (id: string) => void;
 }
 
 export interface CardProp {
@@ -28,12 +30,13 @@ export interface ProjectBodyProps {
 
 export interface ToDoSidebarProps {
   setView: (view: string) => void;
-  addToDo: (name: string) => void;
 }
 
 export interface TaskCategoryProps {
-  category: string;
+  category: { name: string; status: number };
   todos: ToDo[];
+  addToDo: (name: string, status: number) => void;
+  removeToDo: (id: string) => void;
 }
 
 export interface ProjectSidebarProps {

@@ -52,17 +52,32 @@ function App() {
     updateProjects((prevProjects) => [...prevProjects, newProject]);
   }
 
-  function addToDo(name: string) {
+  function addToDo(name: string, status: number) {
     let newToDo = {
       id: uuidv4(),
       name: name,
-      status: 0,
+      status: status,
     };
 
-    const todos = project.todos;
-    todos.push(newToDo);
+    const updatedTodos = [...project.todos, newToDo];
+    const updatedProject = { ...project, todos: updatedTodos };
 
-    updateProjects((prevProjects) => [...prevProjects, project]);
+    updateProjects((prevProjects) =>
+      prevProjects.map((p) => (p.id === project.id ? updatedProject : p))
+    );
+
+    setProject(updatedProject);
+  }
+
+  function removeToDo(id: string) {
+    const updatedTodos = project.todos.filter((todo) => todo.id !== id);
+    const updatedProject = { ...project, todos: updatedTodos };
+
+    updateProjects((prevProjects) =>
+      prevProjects.map((p) => (p.id == project.id ? updatedProject : p))
+    );
+
+    setProject(updatedProject);
   }
 
   return (
@@ -70,7 +85,7 @@ function App() {
       {view === "project" ? (
         <ProjectSidebar addProject={addProject}></ProjectSidebar>
       ) : (
-        <ToDoSideBar setView={setView} addToDo={addToDo}></ToDoSideBar>
+        <ToDoSideBar setView={setView}></ToDoSideBar>
       )}
       {view === "project" ? (
         <ProjectBody
@@ -79,7 +94,11 @@ function App() {
           setProject={setProject}
         ></ProjectBody>
       ) : (
-        <ToDoBody project={project}></ToDoBody>
+        <ToDoBody
+          project={project}
+          addToDo={addToDo}
+          removeToDo={removeToDo}
+        ></ToDoBody>
       )}
     </div>
   );

@@ -1,7 +1,11 @@
-import { ToDo, ToDoBodyProps } from "./Interfaces";
+import { ToDoBodyProps } from "./Interfaces";
 import TaskCategory from "./TaskCategory";
 
-const ToDoBody: React.FC<ToDoBodyProps> = ({ project }) => {
+const ToDoBody: React.FC<ToDoBodyProps> = ({
+  project,
+  addToDo,
+  removeToDo,
+}) => {
   const categories = [
     { name: "ToDo", status: 0 },
     { name: "Doing", status: 1 },
@@ -10,7 +14,6 @@ const ToDoBody: React.FC<ToDoBodyProps> = ({ project }) => {
   return (
     <div className="todo-body">
       {categories.map((category, index) => {
-        console.log(project.todos);
         const filteredTodos = project.todos.filter(
           (todo) => todo.status === category.status
         );
@@ -18,7 +21,9 @@ const ToDoBody: React.FC<ToDoBodyProps> = ({ project }) => {
           <TaskCategory
             key={index}
             todos={filteredTodos}
-            category={category.name}
+            category={category}
+            addToDo={addToDo}
+            removeToDo={removeToDo}
           ></TaskCategory>
         );
       })}
