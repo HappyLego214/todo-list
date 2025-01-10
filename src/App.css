@@ -40,12 +40,6 @@ div {
   display: flex;
 }
 
-.project-card {
-  display: grid;
-  grid-template-rows: 35px 1fr;
-  height: 250px;
-}
-
 .project-sidebar {
   display: grid;
   grid-template-rows: 90px 200px;
@@ -166,7 +160,7 @@ div {
   font-size: 20px;
 }
 
-.project-list {
+.project-list-container {
   padding-left: 15px;
 }
 
@@ -180,4 +174,20 @@ div {
   font-size: large;
   align-items: center;
   justify-content: space-between;
+}
+
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.project-selection {
+  display: flex;
+  align-items: center;
+  padding: 5px 15px 5px 15px;
+}
+
+.project-selection p {
+  padding-left: 15px;
 }

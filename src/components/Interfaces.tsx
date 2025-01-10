@@ -20,18 +20,7 @@ export interface ToDoBodyProps {
 
 export interface CardProp {
   project: Project;
-  setView: (view: string) => void;
   setProject: (project: Project) => void;
-}
-
-export interface ProjectBodyProps {
-  projects: Project[];
-  setView: (view: string) => void;
-  setProject: (project: Project) => void;
-}
-
-export interface ToDoSidebarProps {
-  setView: (view: string) => void;
 }
 
 export interface TaskCategoryProps {
@@ -43,7 +32,9 @@ export interface TaskCategoryProps {
 }
 
 export interface ProjectSidebarProps {
+  projects: Project[];
   addProject: (name: string, todo: ToDo[]) => void;
+  setProject: (project: Project) => void;
 }
 
 export interface TaskCardProps {

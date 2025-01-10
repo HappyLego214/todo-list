@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
-import ProjectBody from "./components/Project/ProjectBody";
 import ToDoBody from "./components/Task/TaskBody";
-import ProjectSidebar from "./components/Project/ProjectSidebar";
-import ToDoSideBar from "./components/Task/TaskSideBar";
+import ProjectSidebar from "./components/Sidebar";
 import { Project, ToDo } from "./components/Interfaces";
 
 const initialProjects: Project[] = [
@@ -41,7 +39,6 @@ const today = new Date();
 console.log(today);
 
 function App() {
-  const [view, setView] = useState("project");
   const [project, setProject] = useState(initialProjects[0]);
   const [projects, updateProjects] = useState(initialProjects);
 
@@ -106,25 +103,17 @@ function App() {
 
   return (
     <div id="main">
-      {view === "project" ? (
-        <ProjectSidebar addProject={addProject}></ProjectSidebar>
-      ) : (
-        <ToDoSideBar setView={setView}></ToDoSideBar>
-      )}
-      {view === "project" ? (
-        <ProjectBody
-          projects={projects}
-          setView={setView}
-          setProject={setProject}
-        ></ProjectBody>
-      ) : (
-        <ToDoBody
-          project={project}
-          addToDo={addToDo}
-          updateToDo={updateToDo}
-          removeToDo={removeToDo}
-        ></ToDoBody>
-      )}
+      <ProjectSidebar
+        addProject={addProject}
+        projects={projects}
+        setProject={setProject}
+      ></ProjectSidebar>
+      <ToDoBody
+        project={project}
+        addToDo={addToDo}
+        updateToDo={updateToDo}
+        removeToDo={removeToDo}
+      ></ToDoBody>
     </div>
   );
 }

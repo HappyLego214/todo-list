@@ -1,11 +1,16 @@
-import { ProjectSidebarProps } from "../Interfaces";
+import { ProjectSidebarProps } from "./Interfaces";
 import { CgProfile } from "react-icons/cg";
 import { WiDaySunny } from "react-icons/wi";
 import { FaTasks } from "react-icons/fa";
 import { BsCalendar2Day } from "react-icons/bs";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
+import { GoDotFill } from "react-icons/go";
 
-const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ addProject }) => {
+const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
+  addProject,
+  setProject,
+  projects,
+}) => {
   return (
     <div className="project-sidebar">
       <div className="project-user">
@@ -28,7 +33,7 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ addProject }) => {
           <FaTasks className="views-svg" /> <p>All Tasks</p>
         </div>
       </div>
-      <div className="project-list">
+      <div className="project-list-container">
         <div className="project-list-options">
           <p>Project List</p>
           <MdOutlineAddCircleOutline
@@ -41,6 +46,20 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ addProject }) => {
               ]);
             }}
           />
+        </div>
+        <div className="project-list">
+          {projects.map((project, index) => (
+            <div
+              className="project-selection"
+              key={index}
+              onClick={() => {
+                setProject(project);
+              }}
+            >
+              <GoDotFill />
+              <p>{project.name}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
