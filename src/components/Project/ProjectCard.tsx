@@ -9,8 +9,11 @@ const ProjectCard: React.FC<CardProp> = ({ setView, setProject, project }) => {
         setProject(project);
       }}
     >
+      <div className="project-title">
+        {" "}
+        {project.name}-{project.id}
+      </div>
       <div></div>
-      {project.name}-{project.id}
     </div>
   );
 };

@@ -4,6 +4,7 @@ import TaskCategory from "./TaskCategory";
 const ToDoBody: React.FC<ToDoBodyProps> = ({
   project,
   addToDo,
+  updateToDo,
   removeToDo,
 }) => {
   const categories = ["ToDo", "Doing", "Done"];
@@ -19,6 +20,7 @@ const ToDoBody: React.FC<ToDoBodyProps> = ({
             todos={filteredTodos}
             category={category}
             addToDo={addToDo}
+            updateToDo={updateToDo}
             removeToDo={removeToDo}
           ></TaskCategory>
         );

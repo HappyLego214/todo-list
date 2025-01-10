@@ -121,6 +121,7 @@ function App() {
         <ToDoBody
           project={project}
           addToDo={addToDo}
+          updateToDo={updateToDo}
           removeToDo={removeToDo}
         ></ToDoBody>
       )}

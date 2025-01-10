@@ -11,6 +11,11 @@ body,
   white-space: nowrap; /* Prevent wrapping */
 }
 
+p,
+h5 {
+  margin: 0;
+}
+
 div {
   border: 1px solid black !important;
 }
@@ -36,7 +41,34 @@ div {
 }
 
 .project-card {
+  display: grid;
+  grid-template-rows: 35px 1fr;
   height: 250px;
+}
+
+.project-sidebar {
+  display: grid;
+  grid-template-rows: 90px 200px;
+}
+
+.project-user {
+  display: grid;
+  padding-top: 15px;
+  grid-template-columns: 80px 1fr;
+}
+
+.user-photo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 45px;
+}
+
+.user-greet {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
 }
 
 .task-category {
@@ -95,4 +127,57 @@ div {
   display: flex;
   justify-content: space-between;
   padding: 0 25px 0 25px;
+}
+
+.todo-checkmark div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+}
+
+.project-view {
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  padding-left: 15px;
+  gap: 20px;
+}
+
+.views {
+  padding: 5px 0 5px 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 16px;
+}
+
+.views-today .views-svg {
+  font-size: 25px;
+}
+
+.views-week .views-svg {
+  margin-left: 3px;
+  font-size: 20px;
+}
+
+.views-all .views-svg {
+  margin-left: 3px;
+  font-size: 20px;
+}
+
+.project-list {
+  padding-left: 15px;
+}
+
+.project-add {
+  font-size: x-large;
+}
+
+.project-list-options {
+  padding: 5px 15px 5px 15px;
+  display: flex;
+  font-size: large;
+  align-items: center;
+  justify-content: space-between;
 }

@@ -4,19 +4,34 @@ import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useState } from "react";
 
-const TaskCard: React.FC<TaskCardProps> = ({ removeToDo, index, todo }) => {
-  const [inputCheck, setCheck] = useState(0);
+const TaskCard: React.FC<TaskCardProps> = ({
+  updateToDo,
+  removeToDo,
+  index,
+  todo,
+}) => {
   const [inputTodo, setToDo] = useState(todo);
+
+  const handleStatusChange = () => {
+    const updatedToDo = {
+      ...inputTodo,
+      status: inputTodo.status === 0 ? 1 : 0,
+    };
+    setToDo(updatedToDo);
+    updateToDo(updatedToDo);
+  };
 
   return (
     <div className="todo-card" key={index}>
       <div className="todo-container">
         <div className="todo-checkmark">
-          {todo.status == 0 ? (
-            <MdOutlineRadioButtonUnchecked />
-          ) : (
-            <FaRegCheckCircle />
-          )}
+          <div onClick={handleStatusChange}>
+            {todo.status == 0 ? (
+              <MdOutlineRadioButtonUnchecked />
+            ) : (
+              <FaRegCheckCircle />
+            )}
+          </div>
         </div>
         <div className="todo-details">
           <div className="todo-top">

@@ -6,6 +6,7 @@ const TaskCategory: React.FC<TaskCategoryProps> = ({
   category,
   todos,
   addToDo,
+  updateToDo,
   removeToDo,
 }) => {
   const [inputValue, setInputValue] = useState("");
@@ -28,6 +29,8 @@ const TaskCategory: React.FC<TaskCategoryProps> = ({
           <TaskCard
             todo={todo}
             index={index}
+            key={index}
+            updateToDo={updateToDo}
             removeToDo={removeToDo}
           ></TaskCard>
         ))}
