@@ -18,7 +18,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
   const handleStatusChange = () => {
     const updatedToDo = {
       ...inputTodo,
-      status: inputTodo.status === 0 ? 1 : 0,
+      status: inputTodo.status === false ? true : false,
     };
     setToDo(updatedToDo);
     updateToDo(updatedToDo);
@@ -29,7 +29,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
       <div className="todo-container">
         <div className="todo-checkmark">
           <div onClick={handleStatusChange}>
-            {todo.status == 0 ? (
+            {todo.status == false ? (
               <MdOutlineRadioButtonUnchecked />
             ) : (
               <FaRegCheckCircle />

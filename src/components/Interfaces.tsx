@@ -1,7 +1,7 @@
 export interface ToDo {
   id: string;
   name: string;
-  status: number;
+  status: boolean;
   category: string;
   due: Date;
 }
@@ -43,4 +43,8 @@ export interface TaskCardProps {
   todo: ToDo;
   removeToDo: (id: string) => void;
   updateToDo: (todo: ToDo) => void;
+}
+
+export interface AddModalProps {
+  setModal: (show: boolean) => void;
 }

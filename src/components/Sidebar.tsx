@@ -5,12 +5,16 @@ import { FaTasks } from "react-icons/fa";
 import { BsCalendar2Day } from "react-icons/bs";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
+import AddBox from "./AddModal";
+import { useState } from "react";
 
 const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
   addProject,
   setProject,
   projects,
 }) => {
+  const [modal, setModal] = useState(false);
+
   return (
     <div className="project-sidebar">
       <div className="project-user">
@@ -39,7 +43,8 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
           <MdOutlineAddCircleOutline
             className="project-add"
             onClick={() => {
-              addProject("Test-Project", []);
+              setModal(true);
+              /* addProject("Test-Project", []); */
             }}
           />
         </div>
@@ -58,6 +63,7 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
           ))}
         </div>
       </div>
+      {modal == true ? <AddBox setModal={setModal}></AddBox> : null}
     </div>
   );
 };
