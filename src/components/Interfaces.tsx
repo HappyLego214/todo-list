@@ -3,6 +3,7 @@ export interface ToDo {
   name: string;
   status: number;
   category: string;
+  due: Date;
 }
 
 export interface Project {

@@ -39,11 +39,7 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
           <MdOutlineAddCircleOutline
             className="project-add"
             onClick={() => {
-              addProject("Test-Project", [
-                { id: "1", name: "4", status: 0, category: "ToDo" },
-                { id: "2", name: "4", status: 0, category: "Doing" },
-                { id: "3", name: "4", status: 0, category: "Done" },
-              ]);
+              addProject("Test-Project", []);
             }}
           />
         </div>

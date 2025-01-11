@@ -5,37 +5,90 @@ import ToDoBody from "./components/Task/TaskBody";
 import ProjectSidebar from "./components/Sidebar";
 import { Project, ToDo } from "./components/Interfaces";
 
+const today = new Date();
+const tomorrow = new Date(today);
+tomorrow.setDate(tomorrow.getDate() + 1);
+const thirdday = new Date(tomorrow);
+thirdday.setDate(thirdday.getDate() + 1);
+
 const initialProjects: Project[] = [
   {
     id: "1",
     name: "School",
     todos: [
-      { id: "1", name: "Finish School Project", status: 0, category: "ToDo" },
-      { id: "2", name: "Assignments", status: 1, category: "Doing" },
-      { id: "3", name: "Group Work", status: 0, category: "Done" },
+      {
+        id: "1",
+        name: "Finish School Project",
+        status: 0,
+        category: "ToDo",
+        due: today,
+      },
+      {
+        id: "2",
+        name: "Assignments",
+        status: 1,
+        category: "Doing",
+        due: tomorrow,
+      },
+      {
+        id: "3",
+        name: "Group Work",
+        status: 0,
+        category: "Done",
+        due: thirdday,
+      },
     ],
   },
   {
     id: "2",
     name: "House",
     todos: [
-      { id: "1", name: "Cleaning Kitchen", status: 0, category: "ToDo" },
-      { id: "2", name: "Helping Mom", status: 0, category: "Doing" },
-      { id: "3", name: "Cooking Dinner", status: 0, category: "Done" },
+      {
+        id: "1",
+        name: "Cleaning Kitchen",
+        status: 0,
+        category: "ToDo",
+        due: today,
+      },
+      {
+        id: "2",
+        name: "Helping Mom",
+        status: 0,
+        category: "Doing",
+        due: tomorrow,
+      },
+      {
+        id: "3",
+        name: "Cooking Dinner",
+        status: 0,
+        category: "Done",
+        due: thirdday,
+      },
     ],
   },
   {
     id: "3",
     name: "Personal",
     todos: [
-      { id: "1", name: "Personal Project", status: 0, category: "ToDo" },
-      { id: "2", name: "Gaming Session", status: 0, category: "Doing" },
-      { id: "3", name: "Workout", status: 0, category: "Done" },
+      {
+        id: "1",
+        name: "Personal Project",
+        status: 0,
+        category: "ToDo",
+        due: today,
+      },
+      {
+        id: "2",
+        name: "Gaming Session",
+        status: 0,
+        category: "Doing",
+        due: tomorrow,
+      },
+      { id: "3", name: "Workout", status: 0, category: "Done", due: thirdday },
     ],
   },
 ];
 
-const today = new Date();
 console.log(today);
 
 function App() {
@@ -58,6 +111,7 @@ function App() {
       name: name,
       status: 0,
       category: category,
+      due: today,
     };
 
     const updatedTodos = [...project.todos, newToDo];

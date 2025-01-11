@@ -191,3 +191,15 @@ div {
 .project-selection p {
   padding-left: 15px;
 }
+
+.todo-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.todo-bot {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 15px;
+}

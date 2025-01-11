@@ -3,6 +3,9 @@ import { TaskCardProps } from "../Interfaces";
 import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
 import { FaRegCheckCircle } from "react-icons/fa";
 import { useState } from "react";
+import { format } from "date-fns";
+
+const today = new Date();
 
 const TaskCard: React.FC<TaskCardProps> = ({
   updateToDo,
@@ -43,6 +46,13 @@ const TaskCard: React.FC<TaskCardProps> = ({
                 }}
               ></FaArchive>
             </div>
+          </div>
+          <div className="todo-bot">
+            {todo.due == today ? (
+              <p>Today</p>
+            ) : (
+              <p>{format(todo.due, "LLLL d, yyyy")}</p>
+            )}
           </div>
         </div>
       </div>
