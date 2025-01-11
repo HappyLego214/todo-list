@@ -25,19 +25,48 @@ div {
   grid-template-columns: 250px 1fr;
 }
 
-.project-body {
-  margin: 25px;
+.project-container {
   display: grid;
-  grid-template-columns: repeat(4, minmax(250px, 1fr));
-  grid-auto-rows: 250px;
-  gap: 25px;
+  grid-template-rows: 90px 1fr;
 }
 
-.todo-body {
+.project-top {
+  display: flex;
+  align-items: center;
+  margin-top: 16px;
+}
+
+.project-details {
+  display: flex;
+  margin-left: 50px;
+  padding: 15px;
+  gap: 10px;
+}
+
+.project-details h4 {
+  margin: 0;
+}
+
+.project-details p {
+  display: flex;
+  align-items: center;
+}
+
+.project-detail-divider {
+  font-size: 30px;
+}
+
+.project-body {
   margin: 25px;
   gap: 30px;
   height: auto;
   display: flex;
+}
+
+.project-detail-options {
+  display: flex;
+  align-items: center;
+  font-size: x-large;
 }
 
 .project-sidebar {

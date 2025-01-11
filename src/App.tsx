@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
-import ToDoBody from "./components/Task/TaskBody";
+import ProjectBody from "./components/Project/ProjectBody";
 import ProjectSidebar from "./components/Sidebar";
 import { Project, ToDo } from "./components/Interfaces";
 
@@ -130,15 +130,26 @@ function App() {
     setProject(updatedProject);
   }
 
+  function removeProject(id: string) {
+    const updatedProjects = projects.filter((project) => project.id !== id);
+
+    updateProjects(updatedProjects);
+
+    /* Needs Rework - will return an issue if there are no existing projects */
+    if (project.id === id) {
+      setProject(projects[0]);
+    }
+  }
+
   function removeToDo(id: string) {
     const updatedTodos = project.todos.filter((todo) => todo.id !== id);
-    const updatedProject = { ...project, todos: updatedTodos };
+    const updatedProjects = { ...project, todos: updatedTodos };
 
     updateProjects((prevProjects) =>
-      prevProjects.map((p) => (p.id == project.id ? updatedProject : p))
+      prevProjects.map((p) => (p.id == project.id ? updatedProjects : p))
     );
 
-    setProject(updatedProject);
+    setProject(updatedProjects);
   }
 
   function updateToDo(todo: ToDo) {
@@ -168,12 +179,13 @@ function App() {
         projects={projects}
         setProject={setProject}
       ></ProjectSidebar>
-      <ToDoBody
+      <ProjectBody
         project={project}
         addToDo={addToDo}
         updateToDo={updateToDo}
         removeToDo={removeToDo}
-      ></ToDoBody>
+        removeProject={removeProject}
+      ></ProjectBody>
     </div>
   );
 }

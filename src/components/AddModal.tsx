@@ -31,7 +31,7 @@ const AddModal: React.FC<AddModalProps> = ({ setModal, addProject }) => {
           <div className="modal-top">
             <h4>Add New Project</h4>
             <div className="modal-exit">
-              <FaXmark />
+              <FaXmark onClick={handleOverlayClick} />
             </div>
           </div>
           <form onSubmit={handleFormSubmit}>

@@ -12,11 +12,12 @@ export interface Project {
   todos: ToDo[];
 }
 
-export interface ToDoBodyProps {
+export interface ProjectBodyProps {
   project: Project;
   addToDo: (name: string, category: string) => void;
   removeToDo: (id: string) => void;
   updateToDo: (todo: ToDo) => void;
+  removeProject: (id: string) => void;
 }
 
 export interface CardProp {
