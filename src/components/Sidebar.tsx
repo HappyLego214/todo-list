@@ -15,6 +15,19 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
 }) => {
   const [modal, setModal] = useState(false);
 
+  function handleModalClick() {
+    setModal(true);
+  }
+
+  function handleSetProjectClick(e: React.MouseEvent<HTMLDivElement>) {
+    const projectId = e.currentTarget.getAttribute("data-project-id");
+    const selectedProject = projects.find((project) => project.id == projectId);
+
+    if (selectedProject) {
+      setProject(selectedProject);
+    }
+  }
+
   return (
     <div className="project-sidebar">
       <div className="project-user">
@@ -42,10 +55,8 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
           <p>Project List</p>
           <MdOutlineAddCircleOutline
             className="project-add"
-            onClick={() => {
-              setModal(true);
-              /* addProject("Test-Project", []); */
-            }}
+            onClick={handleModalClick}
+            /* addProject("Test-Project", []); */
           />
         </div>
         <div className="project-list">
@@ -53,9 +64,8 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
             <div
               className="project-selection"
               key={index}
-              onClick={() => {
-                setProject(project);
-              }}
+              data-project-id={project.id}
+              onClick={handleSetProjectClick}
             >
               <GoDotFill />
               <p>{project.name}</p>
