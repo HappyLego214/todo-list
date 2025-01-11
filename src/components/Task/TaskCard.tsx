@@ -15,14 +15,18 @@ const TaskCard: React.FC<TaskCardProps> = ({
 }) => {
   const [inputTodo, setToDo] = useState(todo);
 
-  const handleStatusChange = () => {
+  function handleStatusChange() {
     const updatedToDo = {
       ...inputTodo,
       status: inputTodo.status === false ? true : false,
     };
     setToDo(updatedToDo);
     updateToDo(updatedToDo);
-  };
+  }
+
+  function handleRemoveToDo() {
+    removeToDo(todo.id);
+  }
 
   return (
     <div className="todo-card" key={index}>
@@ -40,11 +44,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
           <div className="todo-top">
             <div>{todo.name}</div>
             <div>
-              <FaArchive
-                onClick={() => {
-                  removeToDo(todo.id);
-                }}
-              ></FaArchive>
+              <FaArchive onClick={handleRemoveToDo}></FaArchive>
             </div>
           </div>
           <div className="todo-bot">
