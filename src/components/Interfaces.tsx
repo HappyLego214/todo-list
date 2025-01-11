@@ -47,4 +47,5 @@ export interface TaskCardProps {
 
 export interface AddModalProps {
   setModal: (show: boolean) => void;
+  addProject: (name: string, todo: ToDo[]) => void;
 }

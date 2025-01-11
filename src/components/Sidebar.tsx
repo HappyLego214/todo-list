@@ -73,7 +73,9 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
           ))}
         </div>
       </div>
-      {modal == true ? <AddBox setModal={setModal}></AddBox> : null}
+      {modal == true ? (
+        <AddBox setModal={setModal} addProject={addProject}></AddBox>
+      ) : null}
     </div>
   );
 };
