@@ -5,7 +5,7 @@ import { FaTasks } from "react-icons/fa";
 import { BsCalendar2Day } from "react-icons/bs";
 import { MdOutlineAddCircleOutline } from "react-icons/md";
 import { GoDotFill } from "react-icons/go";
-import AddBox from "./AddModal";
+import AddBox from "./modals/AddModal";
 import { useState } from "react";
 
 const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
@@ -13,10 +13,10 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
   setProject,
   projects,
 }) => {
-  const [modal, setModal] = useState(false);
+  const [addModal, setAddModal] = useState(false);
 
   function handleModalClick() {
-    setModal(true);
+    setAddModal(true);
   }
 
   function handleSetProjectClick(e: React.MouseEvent<HTMLDivElement>) {
@@ -73,8 +73,8 @@ const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
           ))}
         </div>
       </div>
-      {modal == true ? (
-        <AddBox setModal={setModal} addProject={addProject}></AddBox>
+      {addModal == true ? (
+        <AddBox setAddModal={setAddModal} addProject={addProject}></AddBox>
       ) : null}
     </div>
   );

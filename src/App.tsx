@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import "./App.css";
-import ProjectBody from "./components/Project/ProjectBody";
+import ProjectBody from "./components/project/ProjectBody";
 import ProjectSidebar from "./components/Sidebar";
 import { Project, ToDo } from "./components/Interfaces";
 

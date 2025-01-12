@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { AddModalProps } from "./Interfaces";
+import { AddModalProps } from "../Interfaces";
 import { FaXmark } from "react-icons/fa6";
 
-const AddModal: React.FC<AddModalProps> = ({ setModal, addProject }) => {
+const AddModal: React.FC<AddModalProps> = ({ setAddModal, addProject }) => {
   const [inputValue, setInputValue] = useState("");
 
   function handleOverlayClick() {
-    setModal(false);
+    setAddModal(false);
   }
 
   function handleInputChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -17,7 +17,7 @@ const AddModal: React.FC<AddModalProps> = ({ setModal, addProject }) => {
     e.preventDefault();
     addProject(inputValue, []);
     setInputValue("");
-    setModal(false);
+    setAddModal(false);
   }
 
   function handleContentCLick(e: React.MouseEvent<HTMLDivElement>) {

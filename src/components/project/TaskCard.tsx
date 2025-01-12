@@ -1,9 +1,9 @@
 import { FaArchive } from "react-icons/fa";
 import { TaskCardProps } from "../Interfaces";
-import { MdOutlineRadioButtonUnchecked } from "react-icons/md";
-import { FaRegCheckCircle } from "react-icons/fa";
+import { FaRegCheckCircle, FaRegCircle } from "react-icons/fa";
 import { useState } from "react";
 import { format } from "date-fns";
+import EditModal from "../modals/EditModal";
 
 const today = new Date();
 
@@ -14,8 +14,11 @@ const TaskCard: React.FC<TaskCardProps> = ({
   todo,
 }) => {
   const [inputTodo, setToDo] = useState(todo);
+  const [editModal, setEditModal] = useState(false);
 
-  function handleStatusChange() {
+  function handleStatusChange(e: React.MouseEvent) {
+    e.stopPropagation();
+
     const updatedToDo = {
       ...inputTodo,
       status: inputTodo.status === false ? true : false,
@@ -24,20 +27,21 @@ const TaskCard: React.FC<TaskCardProps> = ({
     updateToDo(updatedToDo);
   }
 
-  function handleRemoveToDo() {
+  function handleModalClick() {
+    setEditModal(true);
+  }
+
+  function handleRemoveToDo(e: React.MouseEvent) {
+    e.stopPropagation();
     removeToDo(todo.id);
   }
 
   return (
     <div className="todo-card" key={index}>
-      <div className="todo-container">
+      <div className="todo-container" onClick={handleModalClick}>
         <div className="todo-checkmark">
           <div onClick={handleStatusChange}>
-            {todo.status == false ? (
-              <MdOutlineRadioButtonUnchecked />
-            ) : (
-              <FaRegCheckCircle />
-            )}
+            {todo.status == false ? <FaRegCircle /> : <FaRegCheckCircle />}
           </div>
         </div>
         <div className="todo-details">
@@ -56,6 +60,9 @@ const TaskCard: React.FC<TaskCardProps> = ({
           </div>
         </div>
       </div>
+      {editModal == true ? (
+        <EditModal setEditModal={setEditModal}></EditModal>
+      ) : null}
     </div>
   );
 };
