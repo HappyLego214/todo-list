@@ -52,5 +52,8 @@ export interface AddModalProps {
 }
 
 export interface EditModalProps {
+  todo: ToDo;
+  handleRemoveToDo: (e: React.MouseEvent) => void;
+  handleStatusChange: (e: React.MouseEvent) => void;
   setEditModal: (show: boolean) => void;
 }

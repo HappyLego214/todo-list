@@ -26,9 +26,9 @@ const AddModal: React.FC<AddModalProps> = ({ setAddModal, addProject }) => {
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
-      <div className="modal-content" onClick={handleContentCLick}>
+      <div className="modal-content modal-add" onClick={handleContentCLick}>
         <div className="modal-container">
-          <div className="modal-top">
+          <div className="modal-add-top">
             <h4>Add New Project</h4>
             <div className="modal-exit">
               <FaXmark onClick={handleOverlayClick} />

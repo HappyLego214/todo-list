@@ -61,7 +61,12 @@ const TaskCard: React.FC<TaskCardProps> = ({
         </div>
       </div>
       {editModal == true ? (
-        <EditModal setEditModal={setEditModal}></EditModal>
+        <EditModal
+          setEditModal={setEditModal}
+          handleRemoveToDo={handleRemoveToDo}
+          handleStatusChange={handleStatusChange}
+          todo={todo}
+        ></EditModal>
       ) : null}
     </div>
   );
