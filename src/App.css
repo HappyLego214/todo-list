@@ -114,7 +114,10 @@ div {
 }
 
 .todo-card {
-  height: 125px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 110px;
   border-radius: 15px;
   margin: 15px;
   padding: 10px;
@@ -134,8 +137,13 @@ div {
 
 .todo-container {
   display: grid;
+  height: 80px;
   border-radius: 15px;
   grid-template-columns: 50px 1fr;
+}
+
+.todo-complete {
+  text-decoration: line-through;
 }
 
 .todo-checkmark {
@@ -143,7 +151,6 @@ div {
   justify-content: center;
   align-items: center;
   font-size: 25px;
-  height: 100px;
 }
 
 .todo-top {
@@ -301,6 +308,7 @@ div {
 
 .modal-options {
   display: flex;
+  align-items: center;
   gap: 15px;
 }
 

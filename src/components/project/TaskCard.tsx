@@ -62,7 +62,9 @@ const TaskCard: React.FC<TaskCardProps> = ({
         </div>
         <div className="todo-details">
           <div className="todo-top">
-            <div>{todo.name}</div>
+            <div className={todo.status == true ? "todo-complete" : undefined}>
+              {todo.name}
+            </div>
             <div>
               <FaArchive onClick={handleRemoveToDo}></FaArchive>
             </div>

@@ -124,7 +124,7 @@ function App() {
     let newToDo = {
       id: uuidv4(),
       name: name,
-      status: true,
+      status: false,
       category: category,
       due: today,
       notes: "",
