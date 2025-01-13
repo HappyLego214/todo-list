@@ -1,5 +1,5 @@
 import { FaArchive } from "react-icons/fa";
-import { TaskCardProps, ToDo } from "../Interfaces";
+import { TaskCardProps } from "../Interfaces";
 import { FaRegCheckCircle, FaRegCircle } from "react-icons/fa";
 import { useRef, useState } from "react";
 import { format } from "date-fns";

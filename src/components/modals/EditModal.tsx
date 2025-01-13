@@ -3,7 +3,7 @@ import { EditModalProps } from "../Interfaces";
 import { FaArchive } from "react-icons/fa";
 import { IoCheckmarkOutline } from "react-icons/io5";
 import { format } from "date-fns";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 const EditModal: React.FC<EditModalProps> = ({
   todo,
