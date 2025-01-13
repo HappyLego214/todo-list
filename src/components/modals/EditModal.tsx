@@ -10,9 +10,9 @@ const EditModal: React.FC<EditModalProps> = ({
   setEditModal,
   handleRemoveToDo,
   handleStatusChange,
+  handleNoteChange,
+  textAreaRef,
 }) => {
-  const textAreaRef = useRef<HTMLTextAreaElement>(null);
-
   function handleOverlayClick() {
     setEditModal(false);
   }
@@ -21,18 +21,11 @@ const EditModal: React.FC<EditModalProps> = ({
     e.stopPropagation();
   }
 
-  function handleInput() {
-    if (textAreaRef.current) {
-      textAreaRef.current.style.height = "auto";
-      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
-    }
-  }
-
   useEffect(() => {
     if (textAreaRef.current) {
-      handleInput();
+      handleNoteChange();
     }
-  });
+  }, []);
 
   return (
     <div className="modal-overlay" onClick={handleOverlayClick}>
@@ -66,7 +59,8 @@ const EditModal: React.FC<EditModalProps> = ({
               <textarea
                 ref={textAreaRef}
                 placeholder="Place your notes here"
-                onInput={handleInput}
+                onInput={handleNoteChange}
+                defaultValue={todo.notes}
               ></textarea>
             </div>
           </div>

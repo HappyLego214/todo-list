@@ -1,7 +1,7 @@
 import { FaArchive } from "react-icons/fa";
-import { TaskCardProps } from "../Interfaces";
+import { TaskCardProps, ToDo } from "../Interfaces";
 import { FaRegCheckCircle, FaRegCircle } from "react-icons/fa";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { format } from "date-fns";
 import EditModal from "../modals/EditModal";
 
@@ -15,6 +15,7 @@ const TaskCard: React.FC<TaskCardProps> = ({
 }) => {
   const [inputTodo, setToDo] = useState(todo);
   const [editModal, setEditModal] = useState(false);
+  const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   function handleStatusChange(e: React.MouseEvent) {
     e.stopPropagation();
@@ -25,6 +26,21 @@ const TaskCard: React.FC<TaskCardProps> = ({
     };
     setToDo(updatedToDo);
     updateToDo(updatedToDo);
+  }
+
+  function handleNoteChange() {
+    if (textAreaRef.current) {
+      textAreaRef.current.style.height = "auto";
+      textAreaRef.current.style.height = `${textAreaRef.current.scrollHeight}px`;
+
+      const updatedToDo = {
+        ...inputTodo,
+        notes: textAreaRef.current.value,
+      };
+
+      setToDo(updatedToDo);
+      updateToDo(updatedToDo);
+    }
   }
 
   function handleModalClick() {
@@ -65,6 +81,8 @@ const TaskCard: React.FC<TaskCardProps> = ({
           setEditModal={setEditModal}
           handleRemoveToDo={handleRemoveToDo}
           handleStatusChange={handleStatusChange}
+          textAreaRef={textAreaRef}
+          handleNoteChange={handleNoteChange}
           todo={todo}
         ></EditModal>
       ) : null}

@@ -331,6 +331,7 @@ div {
   width: 100%;
   height: auto;
   min-height: fit-content;
+  outline: none;
   overflow: hidden; /* Hide the scrollbar */
   resize: none;
   border: none;

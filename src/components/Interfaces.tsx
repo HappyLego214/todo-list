@@ -1,9 +1,12 @@
+import { RefObject } from "react";
+
 export interface ToDo {
   id: string;
   name: string;
   status: boolean;
   category: string;
   due: Date;
+  notes: string;
 }
 
 export interface Project {
@@ -56,4 +59,6 @@ export interface EditModalProps {
   handleRemoveToDo: (e: React.MouseEvent) => void;
   handleStatusChange: (e: React.MouseEvent) => void;
   setEditModal: (show: boolean) => void;
+  handleNoteChange: () => void;
+  textAreaRef: RefObject<HTMLTextAreaElement>;
 }

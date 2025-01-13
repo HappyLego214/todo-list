@@ -22,6 +22,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "ToDo",
         due: today,
+        notes: "Example Note",
       },
       {
         id: "2",
@@ -29,6 +30,7 @@ const initialProjects: Project[] = [
         status: true,
         category: "Doing",
         due: tomorrow,
+        notes: "",
       },
       {
         id: "3",
@@ -36,6 +38,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "Done",
         due: thirdday,
+        notes: "",
       },
     ],
   },
@@ -49,6 +52,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "ToDo",
         due: today,
+        notes: "",
       },
       {
         id: "2",
@@ -56,6 +60,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "Doing",
         due: tomorrow,
+        notes: "",
       },
       {
         id: "3",
@@ -63,6 +68,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "Done",
         due: thirdday,
+        notes: "",
       },
     ],
   },
@@ -76,6 +82,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "ToDo",
         due: today,
+        notes: "",
       },
       {
         id: "2",
@@ -83,6 +90,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "Doing",
         due: tomorrow,
+        notes: "",
       },
       {
         id: "3",
@@ -90,6 +98,7 @@ const initialProjects: Project[] = [
         status: false,
         category: "Done",
         due: thirdday,
+        notes: "",
       },
     ],
   },
@@ -118,6 +127,7 @@ function App() {
       status: true,
       category: category,
       due: today,
+      notes: "",
     };
 
     const updatedTodos = [...project.todos, newToDo];
